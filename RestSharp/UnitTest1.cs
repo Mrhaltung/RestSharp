@@ -89,10 +89,10 @@ namespace MSTESTRestSharp
         [TestMethod]
         public void OnCallingPutAPI_ReturnEmployeeObject()
         {
-            RestRequest request = new RestRequest("employee", Method.POST);
+            RestRequest request = new RestRequest("employee", Method.PUT);
             JsonObject jsonObj = new JsonObject();
             jsonObj.Add("name", "Radha");
-            jsonObj.Add("salary", "65000");
+            jsonObj.Add("salary", "35000");
             request.AddParameter("application/json", jsonObj, ParameterType.RequestBody);
 
             IRestResponse response = client.Execute(request);
@@ -100,7 +100,7 @@ namespace MSTESTRestSharp
             Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
             Employee employee = JsonConvert.DeserializeObject<Employee>(response.Content);
             Assert.AreEqual("Radha", employee.Name);
-            Assert.AreEqual("65000", employee.Salary);
+            Assert.AreEqual("35000", employee.Salary);
             Console.WriteLine(response.Content);
         }
 
