@@ -1,0 +1,9 @@
+{ "AddressBook":[ { "id":1, "FirstName":"Mr", "LastName":"Haltung", 
+"Address":"A", "City":"C", "State":"M", "ZipCode":4, 
+"PhoneNumber":"5945804540", "Email":"mrhaltung@gmail.com" } , { "id":2, 
+"FirstName":"Dipesh", "LastName":"Chandekar", "Address":"A", "City":"C", 
+"State":"M", "ZipCode":9, "PhoneNumber":"4923954932", 
+"Email":"dipesh@gmail.com" }, { "id":3, "FirstName":"Mithilesh", 
+"LastName":"Chandekar", "Address":"N", "City":"G", "State":"M", 
+"ZipCode":7, "PhoneNumber":"94752959932", "Email":"mithilesh@gmail.com" 
+}]}
