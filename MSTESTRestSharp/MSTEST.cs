@@ -49,7 +49,7 @@ namespace MSTESTRestSharp
         {
             RestRequest request = new RestRequest("/AddressBook", Method.POST);
             JsonObject jsonObj = new JsonObject();
-            jsonObj.Add("id", "9");
+            jsonObj.Add("id", 5);
             jsonObj.Add("FirstName", "Tilak");
             jsonObj.Add("LastName", "Chandekar");
             jsonObj.Add("Address", "A");
@@ -64,18 +64,13 @@ namespace MSTESTRestSharp
             IRestResponse response = client.Execute(request);
 
             Assert.AreEqual(response.StatusCode, HttpStatusCode.Created);
-            AddressBook addressBook = new AddressBook();
-            Assert.AreEqual("Tilak", addressBook.FirstName);
-            Assert.AreEqual("Chandekar", addressBook.LastName);
-            Assert.AreEqual("A", addressBook.Address);
-            Assert.AreEqual("C", addressBook.City);
-            Assert.AreEqual("M", addressBook.State);
-            Assert.AreEqual("4872392", addressBook.PhoneNumber);
-            Assert.AreEqual("tilak@gmail.com", addressBook.Email);
+            AddressBook address = JsonConvert.DeserializeObject<AddressBook>(response.Content);
+            Assert.AreEqual("Tilak", address.FirstName);
+            Console.WriteLine(response.Content);
         }
 
         [TestMethod]
-        public void OnCallingPostAPIForAEmployeeListWithMultipleEMployees_ReturnEmployeeObject()
+        public void OnCallingPostAPIForAddressBookListWithMultipleAddress_ReturnEmployeeObject()
         {
             List<AddressBook> addressBooks = new List<AddressBook>();
             addressBooks.Add(new AddressBook { FirstName = "Vidhi", LastName = "Chandekar", Address = "A", City = "C", State = "M", Zipcode = 4, PhoneNumber = "85536", Email = "radha@gmail.com" });
